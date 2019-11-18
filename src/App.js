@@ -30,10 +30,10 @@ class App extends Component {
               id: snapShop.id,
               ...snapShop.data(),
             }
-          })
+          });
         });
       };
-      this.setState({ currentUser: userAuth })
+      this.setState({ currentUser: userAuth });
     });
   };
 
