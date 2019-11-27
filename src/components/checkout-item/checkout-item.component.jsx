@@ -1,14 +1,18 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import './checkout-item.styles.scss';
+import { clearItemFromCart } from '../../redux/cart/cart.actions';
 
-import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
+import './checkout-item.styles.scss';
 
 const CheckoutItem = ({cartItem}) => {
     const dispatch = useDispatch();
-    console.log(cartItem);
+
     const { name, quantity, price, imageUrl } = cartItem;
+
+    const handleClick = () => {
+        dispatch(clearItemFromCart(cartItem));
+    };
 
     return (
         <div className="checkout-item">
@@ -18,7 +22,7 @@ const CheckoutItem = ({cartItem}) => {
             <span className="name">{name}</span>
             <span className="quantity">{quantity}</span>
             <span className="price">{price}</span>
-            <div className="remove-button">&#10005;</div>
+            <div className="remove-button" onClick={handleClick}>&#10005;</div>
         </div>
     )
 };

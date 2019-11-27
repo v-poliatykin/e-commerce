@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import './checkout.styles.scss';
 
@@ -8,7 +8,6 @@ import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selector
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 const CheckoutPage = () => {
-    const dispatch = useDispatch();
     const cartItems = useSelector(state => selectCartItems(state));
     const totalPrice = useSelector(state => selectCartTotal(state));
 
